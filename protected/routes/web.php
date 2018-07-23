@@ -15,3 +15,4 @@ Route::get('/', 'MainController@index');
 Route::get('/guest/play/easy','MainController@guestModeEasy');
 Route::get('/guest/play/medium','MainController@guestModeMedium');
 Route::get('/guest/play/hard','MainController@guestModeHard');
+Route::get('/leaderboards','LeaderboardController@topList');
