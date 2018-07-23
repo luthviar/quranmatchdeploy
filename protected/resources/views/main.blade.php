@@ -126,11 +126,20 @@
         {{--</li>--}}
     </ul>
 
+    <div class="alert alert-success" role="alert">
+        <h4><i class="fa fa-check-square-o"></i>This is a beta version.</h4>
+        The words will be random from Juz 29 - 30.
+    </div>
     <a class="btn btn-danger btn-lg" href="{{ url('/') }}" role="button"><i class="fa fa-home"></i> Back Home</a>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2018 |
+        <a href="https://linkedin.com/in/luthfi-ar/" target="_blank">luthviar</a> |
+        <a href="https://goo.gl/forms/TnUhPwOzHX8TWi0L2" target="_blank">feedback?</a>
+    </p>
+
 
     <div id="popup1" class="overlay">
         <div class="popup">
-            <h2>Congratulations 🎉</h2>
+            <h2 class="text-center">Congratulations 🎉</h2>
             <a class="close" href=# >×</a>
             <div class="content-1">
                 Congratulations you're a winner 🎉🎉
@@ -138,11 +147,32 @@
             <div class="content-2">
                 <p>You made <span id=finalMove> </span> moves </p>
                 <p>in <span id=totalTime> </span> </p>
-                <p>Rating:  <span id=starRating></span></p>
+                <p>Life:  <span id=starRating></span></p>
             </div>
-            <button id="play-again"onclick="restartGame()">
-                Play again 😄</a>
-            </button>
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg"
+                   role="button" onclick="restartGame()"
+                   style="color: white;"
+                >
+                    Play Again 😄
+                </a>
+            </div>
+            <div class="text-center">
+                <a class="btn btn-danger btn-lg"
+                   href="{{ url('/') }}" role="button">
+                    <i class="fa fa-home"></i> Back Home
+                </a>
+            </div>
+            <div class="text-center">
+                <p class="mt-5 mb-3 text-muted text-center">&copy; 2018 |
+                    <a href="https://linkedin.com/in/luthfi-ar/" target="_blank">luthviar</a> |
+                    <a href="https://goo.gl/forms/TnUhPwOzHX8TWi0L2" target="_blank">feedback?</a>
+                </p>
+            </div>
+
+            {{--<button id="play-again"onclick="restartGame()">--}}
+                {{--Play again 😄</a>--}}
+            {{--</button>--}}
         </div>
     </div>
 

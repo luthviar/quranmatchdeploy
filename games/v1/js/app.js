@@ -2,7 +2,6 @@
 let card = document.getElementsByClassName("card");
 let cards = [...card]
 
-
 // deck of all cards in game
 const deck = document.getElementById("card-deck");
 
@@ -27,7 +26,6 @@ let matchedCard = document.getElementsByClassName("match");
 
  // array for opened cards
 var openedCards = [];
-var cardLogs = [];
 
 
 // @description shuffles cards
@@ -51,15 +49,10 @@ function shuffle(array) {
 // @description shuffles cards when page is refreshed / loads
 document.body.onload = startGame();
 
-function restartGame() {
-    location.reload();
-    startGame();
-}
 
 // @description function to start a new play 
 function startGame(){
     // shuffle deck
-
     cards = shuffle(cards);
     // remove all exisiting classes from each card
     for (var i = 0; i < cards.length; i++){
@@ -89,32 +82,18 @@ function startGame(){
 
 // @description toggles open and show class to display cards
 var displayCard = function (){
-
     this.classList.toggle("open");
-
     this.classList.toggle("show");
-
     this.classList.toggle("disabled");
 };
 
 
 // @description add opened cards to OpenedCards list and check if cards are match or not
 function cardOpen() {
-    // 
     openedCards.push(this);
-    // cardLogs.push(openedCards[0]);
-    
-    
-
-    // $('#viewcardfirst').append(openedCards[0]);
-
     var len = openedCards.length;
     if(len === 2){
-
         moveCounter();
-        cardLogs.push(openedCards[1]);
-        // $('#viewcardsecond').append(openedCards[1]);
-
         if(openedCards[0].type === openedCards[1].type){
             matched();
         } else {
@@ -124,7 +103,6 @@ function cardOpen() {
 };
 
 
-
 // @description when cards match
 function matched(){
     openedCards[0].classList.add("match", "disabled");
@@ -132,8 +110,6 @@ function matched(){
     openedCards[0].classList.remove("show", "open", "no-event");
     openedCards[1].classList.remove("show", "open", "no-event");
     openedCards = [];
-    cardLogs = [];
-
 }
 
 
@@ -147,7 +123,6 @@ function unmatched(){
         openedCards[1].classList.remove("show", "open", "no-event","unmatched");
         enable();
         openedCards = [];
-        cardLogs = [];
     },1100);
 }
 
@@ -222,7 +197,7 @@ function startTimer(){
 
 // @description congratulations when all cards match, show modal and moves, time and rating
 function congratulations(){
-    if (matchedCard.length == cards.length){
+    if (matchedCard.length == 16){
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
@@ -264,6 +239,5 @@ for (var i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener("click", displayCard);
     card.addEventListener("click", cardOpen);
-    
     card.addEventListener("click",congratulations);
 };

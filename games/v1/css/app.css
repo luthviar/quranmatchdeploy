@@ -18,7 +18,7 @@ body {
 
 body {
 	background: #ffffff;
-	/*font-family: 'Permanent Marker', cursive;*/
+	font-family: 'Permanent Marker', cursive;
 	font-size: 16px;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 h1 {
-	/*font-family: 'Gloria Hallelujah', cursive;*/
+	font-family: 'Gloria Hallelujah', cursive;
 }
 
 
@@ -40,38 +40,20 @@ h1 {
  */
 
 
-@media only screen and (max-device-width : 640px) {
-	/* Styles */
-}
-
-@media only screen and (max-device-width: 768px) {
-	/* Styles */
-}
-
 .deck {
-	margin-top: 100px;
-	border-top-width: 100px;
-
-	padding-top: 10%;
-	margin-bottom: 100px;
-	border-bottom-width: 100px;
-	padding-bottom: 60%;
-
-	width: 90%;
+	width: 85%;
 	background: #716F71;
-	padding-left: 1rem;
-	padding-right: 1rem;
+	padding: 1rem;
 	border-radius: 4px;
 	box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
-	/*margin: 0 0 3em;*/
+	margin: 0 0 3em;
 }
 
 .deck .card {
-	font-family: 'Permanent Marker', cursive;
 	height: 3.7rem;
 	width: 3.7rem;
 	margin: 0.2rem 0.2rem;
@@ -97,14 +79,13 @@ h1 {
 }
 
 .deck .card.show {
-	font-size: 140%;
-	z-index: 9999;
+	font-size: 33px;
 }
 
 .deck .card.match {
 	cursor: default;
-	background: #34495e;
-	font-size: 95%;
+	background: #E5F720;
+	font-size: 33px;
 	animation-name: rubberBand;
 	-webkit-backface-visibility: visible !important;
 	backface-visibility: visible !important;
@@ -193,13 +174,13 @@ h1 {
 	width: 85%;
 	position: relative;
 	transition: all 5s ease-in-out;
-	/*font-family: 'Gloria Hallelujah', cursive;*/
+	font-family: 'Gloria Hallelujah', cursive;
 }
   
 .popup h2 {
 	margin-top: 0;
 	color: #333;
-	/*font-family: Tahoma, Arial, sans-serif;*/
+	font-family: Tahoma, Arial, sans-serif;
 }
 
 .popup .close {
@@ -240,7 +221,7 @@ h1 {
 	display: block;
 	margin: 0 auto;
 	width: 50%;
-	/*font-family: 'Gloria Hallelujah', cursive;*/
+	font-family: 'Gloria Hallelujah', cursive;
 	color: #ffffff;
 	border-radius: 5px;
 }

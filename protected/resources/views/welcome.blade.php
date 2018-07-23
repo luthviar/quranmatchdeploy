@@ -51,9 +51,24 @@
             {{--<input type="checkbox" value="remember-me"> Remember me--}}
         {{--</label>--}}
     {{--</div>--}}
-        <a class="btn btn-info btn-primary btn-lg" href="{{ url('/guest/play') }}" role="button">Start Guest Mode</a>
-    <p class="mt-5 mb-3 text-muted text-center">&copy; 2018 |
-        <a href="https://linkedin.com/in/luthfi-ar/" target="_blank">luthviar</a>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col">
+                    <a class="btn btn-info btn-block btn-primary btn-md" href="{{ url('/guest/play/easy') }}" role="button">Start Guest Mode (Easy 4x2)</a>
+
+                    <a class="btn btn-block btn-primary btn-md" href="{{ url('/guest/play/medium') }}" role="button">Start Guest Mode (Medium 4x4)</a>
+
+                    <a class="btn btn-info btn-block btn-danger btn-md" href="{{ url('/guest/play/hard') }}" role="button">Start Guest Mode (Hard 5x4)</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2018 |
+        <a href="https://linkedin.com/in/luthfi-ar/" target="_blank">luthviar</a> |
+            <a href="https://goo.gl/forms/TnUhPwOzHX8TWi0L2" target="_blank">feedback?</a>
     </p>
 </form>
 </body>
