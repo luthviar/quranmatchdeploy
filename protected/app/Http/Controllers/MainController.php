@@ -14,7 +14,7 @@ use Session;
 class MainController extends Controller
 {
     public function index(){
-        return view('welcome');
+        return view('mainhome');
     }
 
     public function guestMode() {
@@ -30,7 +30,7 @@ class MainController extends Controller
 
 
 
-        return view('play')->with('quran',$quran);
+        return view('play2')->with('quran',$quran);
     }
 
     public function guestModeMedium() {
@@ -38,7 +38,7 @@ class MainController extends Controller
 
 
 
-        return view('play')->with('quran',$quran);
+        return view('play2')->with('quran',$quran);
     }
 
     public function guestModeHard() {
@@ -46,6 +46,6 @@ class MainController extends Controller
 
 
 
-        return view('play')->with('quran',$quran);
+        return view('play2')->with('quran',$quran);
     }
 }

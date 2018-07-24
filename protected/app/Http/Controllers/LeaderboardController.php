@@ -19,7 +19,10 @@ class LeaderboardController extends Controller
     $totalTimes = DB::select(DB::raw("CALL score_read_total_times()")),
     $totalMoves = DB::select(DB::raw("CALL score_read_total_moves()")),
     ];
-    return view('leaderboards')->with('data',$data);
+
+    $data2 = DB::table('score')->limit(20)->get();
+
+    return view('scoreboard')->with('data',$data2);
   }
 
   public function result(Request $request){
