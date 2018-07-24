@@ -1,48 +1,9 @@
-<<<<<<< HEAD
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Quran Match Game, Play and Challenge Yourself">
-    <meta name="author" content="luthviar">
-    <meta name="google-site-verification" content="Dc2hLdZBw_lDGbNlGZHhfB-UVm_gdbZBfym7FJfiIwA" />
-    <link rel="icon" href="{{ URL::asset('/img/logo.png') }}">
-
-    {{--start main blade--}}
-
-    {{--end main blade--}}
-
-    <title>Quran Match</title>
-
-
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122658895-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-122658895-1');
-    </script>
-
-</head>
-
-<body>
-    @yield('content')
-
-    <script src="{{ URL::asset('js/jquery-3.3.1.js') }}"></script>
-    <script src="{{ URL::asset('js/app.js') }}"></script>
-</body>
-</html>
-=======
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -50,14 +11,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ URL::asset('/js/app.js') }}" defer></script>
+    <script src="{{ URL::asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ URL::asset('/css/app.css') }}" rel="stylesheet">
+     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet"> 
 </head>
 <body>
     <div id="app">
@@ -71,14 +32,14 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -116,4 +77,4 @@
     </div>
 </body>
 </html>
->>>>>>> a7a045bcff02d01d5375778096023626231df2e7
+

@@ -1,7 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Memory Game</title>
+	<meta name="google-site-verification" content="Dc2hLdZBw_lDGbNlGZHhfB-UVm_gdbZBfym7FJfiIwA" />
+    <meta name="description" content="Quran Match Game, Play and Challenge Yourself">
+    <meta name="author" content="luthviar">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Arial">
+    <!--  -->
+    <link href="{{ URL::asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('css/app.css')}}">
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122658895-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-@extends('layouts.app')
-@section('content')
-    @extends('layouts.cssplay')
+  gtag('config', 'UA-122658895-1');
+</script>
+
+
+</head>
+<body>
     <div class="container">
         <header>
             <h1>Quran Match</h1>
@@ -90,4 +114,7 @@
         </div>
 
     </div>
-@endsection
+    <script src="{{ URL::asset('js/jquery-3.3.1.js') }}"></script>
+<script src="{{ URL::asset('js/app.js') }}"></script>
+</body>
+</html>
