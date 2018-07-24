@@ -19,31 +19,31 @@ class MainController extends Controller
 
     public function guestMode() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(4)->get();
-
-        return view('main')->with('quran',$quran);
+        $type = "guestMode";
+        return view('main')->with('quran',$quran)->with('type',$type);
     }
 
     public function modeEasy() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(4)->get();
+        $type = "easyMode";
 
 
-
-        return view('play2')->with('quran',$quran);
+        return view('play2')->with('quran',$quran)->with('type',$type);
     }
 
     public function modeMedium() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(8)->get();
+        $type = "mediumMode";
 
 
-
-        return view('play2')->with('quran',$quran);
+        return view('play2')->with('quran',$quran)->with('type',$type);
     }
 
     public function modeHard() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(10)->get();
+        $type = "hardMode";
 
 
-
-        return view('play2')->with('quran',$quran);
+        return view('play2')->with('quran',$quran)->with('type',$type);
     }
 }

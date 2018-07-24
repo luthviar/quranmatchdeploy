@@ -11,6 +11,8 @@
         .top-buffer { margin-top:10%; }
     </style>
 
+    <input type="hidden" id="type" value="{{$type}}">
+
 
     <div class="row text-center top-buffer">
         <div class="col-lg-5">

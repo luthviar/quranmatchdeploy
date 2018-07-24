@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller,
   Illuminate\Support\Facades\DB as DB,
   Illuminate\Http\Request;
 
+use Response;
+
 
 class LeaderboardController extends Controller
 {
@@ -26,7 +28,9 @@ class LeaderboardController extends Controller
   }
 
   public function result(Request $request){
-    return view('login');
+    $sen['success'] = true;
+    $sen['result'] = $request->toArray();
+    return Response::json( $sen );
   }
 
 }

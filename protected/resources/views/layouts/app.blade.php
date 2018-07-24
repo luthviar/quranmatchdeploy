@@ -6,7 +6,7 @@
     <meta name="description" content="Quran Match Game, Play and Challenge Yourself">
     <meta name="author" content="luthviar">
     <meta name="google-site-verification" content="Dc2hLdZBw_lDGbNlGZHhfB-UVm_gdbZBfym7FJfiIwA" />
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Quran Match</title>
 
@@ -32,6 +32,38 @@
                 <a class="nav-link active" href="{{ url('/') }}">Home</a>
                 <a class="nav-link" href="https://goo.gl/forms/TnUhPwOzHX8TWi0L2" target="_blank">Feedback?</a>
                 <a class="nav-link" href="https://linkedin.com/in/luthfi-ar/" target="_blank">Contact Me</a>
+                @guest
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    <!-- <li><a class="nav-link" href="{{ route('register') }}">Register</a></li> -->
+                @else
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                <!-- <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li> -->
+                @endguest
+                
+                
             </nav>
         </div>
     </header>

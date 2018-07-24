@@ -237,16 +237,30 @@ function congratulations(){
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
 
-        $.ajax({ 
-            url: "{{ URL::action('LeaderboardController@result') }}",
+        var game_type = document.getElementById("type").value;
+
+        jQuery.ajaxSetup({
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
+        jQuery.ajax({
+            dataType: 'json',
             type: 'POST',
-            data: { moves: moves, _token: "{{csrf_token()}}" },
-            success: function()
-            {
-                alert("Settings has been updated successfully.");
+            url: '/result',
+            data: {
+                moves: moves,
+                finalTime: finalTime,
+                gameType: game_type
+            },
+            success: function(result) {
+                console.log(result);
+            },
+            error: function(result) {
+                console.log(result);
             }
         });
-
+        
         //closeicon on modal
         closeModal();
     };
