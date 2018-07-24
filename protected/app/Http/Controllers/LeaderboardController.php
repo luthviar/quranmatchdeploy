@@ -22,4 +22,8 @@ class LeaderboardController extends Controller
     return view('leaderboards')->with('data',$data);
   }
 
+  public function result(Request $request){
+    return view('login');
+  }
+
 }

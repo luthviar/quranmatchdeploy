@@ -30,5 +30,6 @@ Route::get('loginpage', function(){
     return view('login');
 });
 
+Route::post('result','LeaderboardController@result');
 
 

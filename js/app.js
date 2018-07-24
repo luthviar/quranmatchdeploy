@@ -237,6 +237,16 @@ function congratulations(){
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
 
+        $.ajax({ 
+            url: "{{ URL::action('LeaderboardController@result') }}",
+            type: 'POST',
+            data: { moves: moves, _token: "{{csrf_token()}}" },
+            success: function()
+            {
+                alert("Settings has been updated successfully.");
+            }
+        });
+
         //closeicon on modal
         closeModal();
     };

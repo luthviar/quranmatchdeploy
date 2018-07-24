@@ -237,6 +237,8 @@ function congratulations(){
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
 
+        
+
         //closeicon on modal
         closeModal();
     };
