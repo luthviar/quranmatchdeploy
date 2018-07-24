@@ -18,9 +18,9 @@ class MainController extends Controller
     }
 
     public function guestMode() {
-        $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(4)->get();
+        $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(8)->get();
 
-        return view('main')->with('quran',$quran);
+        return view('play2')->with('quran',$quran);
     }
 
     public function modeEasy() {
