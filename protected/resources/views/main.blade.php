@@ -157,6 +157,7 @@
                     Play Again 😄
                 </a>
             </div>
+
             <div class="text-center">
                 <a class="btn btn-danger btn-lg"
                    href="{{ url('/') }}" role="button">
