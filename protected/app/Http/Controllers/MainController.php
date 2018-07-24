@@ -20,12 +20,10 @@ class MainController extends Controller
     public function guestMode() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(4)->get();
 
-
-
         return view('main')->with('quran',$quran);
     }
 
-    public function guestModeEasy() {
+    public function modeEasy() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(4)->get();
 
 
@@ -33,7 +31,7 @@ class MainController extends Controller
         return view('play2')->with('quran',$quran);
     }
 
-    public function guestModeMedium() {
+    public function modeMedium() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(8)->get();
 
 
@@ -41,7 +39,7 @@ class MainController extends Controller
         return view('play2')->with('quran',$quran);
     }
 
-    public function guestModeHard() {
+    public function modeHard() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(10)->get();
 
 
