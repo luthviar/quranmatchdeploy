@@ -12,6 +12,18 @@
 */
 
 Route::get('/', 'MainController@index');
-Route::get('/guest/play/easy','MainController@guestModeEasy');
-Route::get('/guest/play/medium','MainController@guestModeMedium');
-Route::get('/guest/play/hard','MainController@guestModeHard');
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::get('/guest/play/easy','MainController@guestModeEasy');
+    Route::get('/guest/play/medium','MainController@guestModeMedium');
+    Route::get('/guest/play/hard','MainController@guestModeHard');
+
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('loginpage', function(){
+    return view('login');
+});
