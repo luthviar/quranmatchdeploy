@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Quran Match Game, Play and Challenge Yourself">
     <meta name="author" content="luthviar">
-    <meta name="google-site-verification" content="Dc2hLdZBw_lDGbNlGZHhfB-UVm_gdbZBfym7FJfiIwA" />
+    <meta name="google-site-verification" content="aHUz5xlBOwcsACL9v9SaIYddaweiQFCUC02E5yG5RA0" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Quran Match</title>

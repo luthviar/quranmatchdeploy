@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Quran Match Game, Play and Challenge Yourself">
     <meta name="author" content="luthviar">
-	<meta name="google-site-verification" content="Dc2hLdZBw_lDGbNlGZHhfB-UVm_gdbZBfym7FJfiIwA" />
+    <meta name="google-site-verification" content="aHUz5xlBOwcsACL9v9SaIYddaweiQFCUC02E5yG5RA0" />
     {{--<link rel="icon" href="../../../../favicon.ico">--}}
 
     <title>Login | Quran Match</title>
@@ -21,16 +21,16 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ URL::asset('/css/floating-labels.css') }}" rel="stylesheet">
-	
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122658895-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-122658895-1');
-</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122881138-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122881138-1');
+    </script>
 
 </head>
 
