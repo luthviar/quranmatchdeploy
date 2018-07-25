@@ -13,8 +13,15 @@
 
     <input type="hidden" id="type" value="{{$type}}">
 
-
+    <div class="row text-center" style="margin-top: 5%;">
+        <div class="col-lg-12">
+            <p>Open the card and find the match of the word for its translation.</p>
+        </div>
+    </div>
     <div class="row text-center top-buffer">
+
+
+
         <div class="col-lg-5">
 
 
@@ -50,7 +57,7 @@
     </div>
 
     <div class="row text-center">
-        <div class="col-lg-6 offset-lg-3">
+        <div class="col-lg-8 offset-lg-2">
             @guest
             <div class="alert alert-warning" role="alert">
                 <h6>You are in guest mode,
@@ -83,9 +90,15 @@
         </div>
     </div>
 
+    <div class="row text-center" style="margin-top: 5%;">
+        <div class="col-lg-12">
+            <p>Play, Have Fun, and Learn new words of Al-Qur'an in a new way.</p>
+        </div>
+    </div>
+
     <div class="alert alert-success" role="alert">
         <h4><i class="fa fa-check-square-o"></i>This is a beta version.</h4>
-        The words will be random from Juz 29 - 30.
+        The words will be random of each level, Easy : Juz 30, Medium : Juz 29 - 30, Hard : Juz 1 - 30
     </div>
 
 

@@ -38,7 +38,7 @@
                                    href="{{ url('/guest/play/hard') }}" role="button">Start - Hard 5x4</a>
 
                                 <a class="btn btn-info btn-block btn-warning btn-md"
-                                   href="{{ url('/scoreboards') }}" role="button">Scoreboards</a>
+                                   href="{{ url('/scoreboard/easy') }}" role="button">Scoreboards</a>
                                 {{--@endguest--}}
                             </div>
 

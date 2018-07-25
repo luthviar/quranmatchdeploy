@@ -20,7 +20,9 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/guest/play/easy','MainController@modeEasy');
     Route::get('/guest/play/medium','MainController@modeMedium');
     Route::get('/guest/play/hard','MainController@modeHard');
-    Route::get('/scoreboards','LeaderboardController@topList');
+    Route::get('/scoreboard/easy','LeaderboardController@topList');
+    Route::get('/scoreboard/medium','LeaderboardController@topListMedium');
+    Route::get('/scoreboard/hard','LeaderboardController@topListHard');
 
 });
 
