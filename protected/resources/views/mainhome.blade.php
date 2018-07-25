@@ -34,13 +34,13 @@
                                 {{--@guest--}}
                                 {{--@else--}}
                                 <a class="btn btn-info btn-block btn-primary btn-md"
-                                   href="{{ url('/guest/play/easy') }}" role="button">Start - Easy 4x2</a>
+                                   href="{{ url('/play/easy') }}" role="button">Start - Easy 4x2</a>
 
                                 <a class="btn btn-block btn-primary btn-md"
-                                   href="{{ url('/guest/play/medium') }}" role="button">Start - Medium 4x4</a>
+                                   href="{{ url('/play/medium') }}" role="button">Start - Medium 4x4</a>
 
                                 <a class="btn btn-info btn-block btn-danger btn-md"
-                                   href="{{ url('/guest/play/hard') }}" role="button">Start - Hard 5x4</a>
+                                   href="{{ url('/play/hard') }}" role="button">Start - Hard 5x4</a>
 
                                 <a class="btn btn-info btn-block btn-warning btn-md"
                                    href="{{ url('/scoreboard/easy') }}" role="button">Scoreboards</a>
