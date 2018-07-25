@@ -31,7 +31,7 @@
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link active" href="{{ url('/') }}">Home</a>
                 <a class="nav-link" href="https://goo.gl/forms/TnUhPwOzHX8TWi0L2" target="_blank">Feedback?</a>
-                <a class="nav-link" href="https://linkedin.com/in/luthfi-ar/" target="_blank">Contact Me</a>
+                <a class="nav-link" href="https://fb.com/luthviar" target="_blank">Contact Me</a>
                 @guest
                     <a class="nav-link" href="{{ route('login') }}">Login</a>
                     <!-- <li><a class="nav-link" href="{{ route('register') }}">Register</a></li> -->
