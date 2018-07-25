@@ -26,7 +26,7 @@ class MainController extends Controller
 
     public function modeEasy() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(4)->get();
-        $type = "easyMode";
+        $type = "1";
 
 
         return view('play2')->with('quran',$quran)->with('type',$type);
@@ -34,7 +34,7 @@ class MainController extends Controller
 
     public function modeMedium() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(8)->get();
-        $type = "mediumMode";
+        $type = "2";
 
 
         return view('play2')->with('quran',$quran)->with('type',$type);
@@ -42,7 +42,7 @@ class MainController extends Controller
 
     public function modeHard() {
         $quran = DB::table('qurans')->where('no_surat','=',rand(68,114))->limit(10)->get();
-        $type = "hardMode";
+        $type = "3";
 
 
         return view('play2')->with('quran',$quran)->with('type',$type);

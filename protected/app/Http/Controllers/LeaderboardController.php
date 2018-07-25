@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller,
   Illuminate\Support\Facades\DB as DB,
+  App\Http\Controllers\Leaderboard\LeaderboardsController as Leaderboard,
   Illuminate\Http\Request;
 
 use Response;
-
+use Auth;
 
 class LeaderboardController extends Controller
 {
@@ -30,7 +31,15 @@ class LeaderboardController extends Controller
   public function result(Request $request){
     $sen['success'] = true;
     $sen['result'] = $request->toArray();
-    return Response::json( $sen );
+    If (Auth::user()){
+      $leaderboard = new Leaderboard(Auth::user()->id);
+      if(!($leaderboard->exist)){
+          $email =Auth::user()->id;
+          DB::unprepared(DB::raw("CALL score_insert('$email','$request->moves','00:00:00','$request->gameType')"));
+      }
+    }
   }
+
+
 
 }
