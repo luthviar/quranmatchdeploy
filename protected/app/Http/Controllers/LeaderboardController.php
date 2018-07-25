@@ -25,8 +25,14 @@ class LeaderboardController extends Controller
 
 //    dd(Auth::user());
 
-    return view('scoreboard')->with('easy',$easy)->with('medium',$medium)->with('hard',$hard)
-        ->with('id',Auth::user()->id)->with('myscore',$myscore);
+      if (is_null($myscore)) {
+          return redirect(url('/'));
+      } else {
+          return view('scoreboard')->with('easy',$easy)->with('medium',$medium)->with('hard',$hard)
+              ->with('id',Auth::user()->id)->with('myscore',$myscore);
+      }
+
+
   }
 
     public function topListMedium(){
