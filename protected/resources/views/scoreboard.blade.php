@@ -8,44 +8,106 @@
         <table id="scoreboard">
             <thead>
             <tr>
-                <th>#</th>
-                <th>First</th>
-                <th>Last</th>
-                <th>Handle</th>
+                <th>No</th>
+                <th>Username</th>
+                <th>Fastest Moves</th>
+                <th>Total Moves</th>
+                <th>Total Match</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th>3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+                @php $no =1 @endphp
+              @foreach($easy as $topListEasy)
+              <tr>
+                <td>@php
+                        echo $no;
+                        $no++
+                    @endphp
+                </td>
+                <td>{{ $topListEasy->email }}</td>
+                <td>{{ $topListEasy->fastestmoves }}</td>
+                <td>{{ $topListEasy->totalmoves }}</td>
+                <td>{{ $topListEasy->totalmatch }}</td>
+              </tr>
+              @endforeach
             </tbody>
         </table>
     </div>
+
+    <div class="col">
+        <table id="scoreboard">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Username</th>
+                <th>Fastest Moves</th>
+                <th>Total Moves</th>
+                <th>Total Match</th>
+            </tr>
+            </thead>
+            <tbody>
+                @php $no =1 @endphp
+              @foreach($medium as $topListmedium)
+              <tr>
+                <td>@php
+                        echo $no;
+                        $no++
+                    @endphp
+                </td>
+                <td>{{ $topListmedium->email }}</td>
+                <td>{{ $topListmedium->fastestmoves }}</td>
+                <td>{{ $topListmedium->totalmoves }}</td>
+                <td>{{ $topListmedium->totalmatch }}</td>
+              </tr>
+              @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col">
+        <table id="scoreboard">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Username</th>
+                <th>Fastest Moves</th>
+                <th>Total Moves</th>
+                <th>Total Match</th>
+            </tr>
+            </thead>
+            <tbody>
+                @php $no =1 @endphp
+              @foreach($hard as $topListhard)
+              <tr>
+                <td>@php
+                        echo $no;
+                        $no++
+                    @endphp
+                </td>
+                <td>{{ $topListhard->email }}</td>
+                <td>{{ $topListhard->fastestmoves }}</td>
+                <td>{{ $topListhard->totalmoves }}</td>
+                <td>{{ $topListhard->totalmatch }}</td>
+              </tr>
+              @endforeach
+            </tbody>
+        </table>
+    </div>
+
+
 </div>
+
+
 
 
     <script src="{{ URL::asset('js/jquery-3.3.1.js') }}" type="text/javascript"></script>
     <script src="{{ URL::asset('js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
     <script>
-        $(document).ready( function () {
-            $('#scoreboard').DataTable();
-        } );
+    $(document).ready(function() {
+      $('#scoreboard').DataTable( {
+          "order": [[ 4, "desc" ]]
+      } );
+    } );
     </script>
 
 @endsection
-
