@@ -26,8 +26,8 @@
                             <div class="col">
                                 <a class="btn btn-block btn-light btn-md"
                                    href="{{ url('/guest/play/') }}" role="button">Start Guest Mode</a>
-                                @guest
-                                @else
+                                {{--@guest--}}
+                                {{--@else--}}
                                 <a class="btn btn-info btn-block btn-primary btn-md"
                                    href="{{ url('/guest/play/easy') }}" role="button">Start- Easy 4x2</a>
 
@@ -39,7 +39,7 @@
 
                                 <a class="btn btn-info btn-block btn-warning btn-md"
                                    href="{{ url('/scoreboards') }}" role="button">Scoreboards</a>
-                                @endguest
+                                {{--@endguest--}}
                             </div>
 
                         </div>
