@@ -31,7 +31,7 @@ class LeaderboardListController extends Controller
      $this->id = $id;
      if($id){
          $item = DB::table('score')
-           ->where('id', $id)
+           ->where('idUser', $id)
            ->first();
              if($item){
                  $this->id           	      = $item->id;
@@ -54,8 +54,3 @@ class LeaderboardListController extends Controller
 
 
 }
-
-
-
-
-
