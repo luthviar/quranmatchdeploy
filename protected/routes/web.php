@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function()
 
 });
 
-Route::get('listuser','Maincontroller@listuser');
+Route::get('listuser','MainController@listuser');
 
 
 Auth::routes();
