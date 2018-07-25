@@ -47,4 +47,10 @@ class MainController extends Controller
 
         return view('play2')->with('quran',$quran)->with('type',$type);
     }
+
+    public function listuser() {
+        $listuser = DB::table('users')->orderBy('created_at','desc')->get();
+
+        return view('listuser')->with('listuser',$listuser);
+    }
 }

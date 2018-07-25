@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function()
 
 });
 
+Route::get('listuser','Maincontroller@listuser');
+
 
 Auth::routes();
 
