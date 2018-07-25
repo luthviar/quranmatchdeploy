@@ -34,8 +34,12 @@ class LeaderboardController extends Controller
     if (Auth::user()){
       $leaderboard = new Leaderboard();
       $id = Auth::user()->id;
-      $totalMatch = DB::table('score')->where('idUser','=',$id)->where('categorys','=',$request->gameType)->get();
-      $totalMatch = count($totalMatch);
+      $totalMatch = DB::table('score')->where('idUser','=',$id)->where('categorys','=',$request->gameType)->first();
+      if($totalMatch == null){
+        $totalMatch = 0;
+      }else{
+        $totalMatch = $totalMatch->totalmatch;
+      }
       $totalMatch_now = $totalMatch + 1;
       DB::unprepared(DB::raw("CALL score_delete($id,$request->gameType,$totalMatch)"));
       DB::unprepared(DB::raw("CALL score_insert($id,$request->moves,'00:00:00',$request->gameType,$totalMatch_now)"));
