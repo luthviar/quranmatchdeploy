@@ -34,6 +34,7 @@
             {{--</ul>--}}
         <div class="col-lg-3">
             <h5 class="text-center"><span class="moves">0</span> Move(s)</h5>
+
         </div>
         <div class="col-lg-4">
             <h5 class="text-center"><div class="timer text-center"></div></h5>
@@ -46,7 +47,22 @@
             {{--</div>--}}
         </div>
 
+    </div>
+
+    <div class="row text-center">
+        <div class="col-lg-6 offset-lg-3">
+            @guest
+            <div class="alert alert-warning" role="alert">
+                <h6>You are in guest mode,
+                    please login or sign up to play others level,
+                    access score and other features <a style="color: blue;" href="{{ url('login') }}">here.</a>
+                </h6>
+            </div>
+
+            @endguest
         </div>
+
+    </div>
 
 
     <div class="row">
