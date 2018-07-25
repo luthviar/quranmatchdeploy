@@ -24,6 +24,11 @@
                     <div class="container">
                         <div class="row text-center">
                             <div class="col">
+                                @if(Session::get('failed') != null)
+                                <div class="alert alert-danger" role="alert">
+                                    {{ Session::get('failed') }}
+                                </div>
+                                @endif
                                 <a class="btn btn-block btn-light btn-md"
                                    href="{{ url('/guest/play/') }}" role="button">Start Guest Mode</a>
                                 {{--@guest--}}

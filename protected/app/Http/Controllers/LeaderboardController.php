@@ -21,13 +21,18 @@ class LeaderboardController extends Controller
     $medium = DB::select(DB::raw("CALL score_read_medium()"));
     $hard = DB::select(DB::raw("CALL score_read_hard()"));
 
-    $myscore = DB::table('score')->where('idUser','=',Auth::user()->id)->first();
+    $myscore = DB::table('score')->where('idUser','=',Auth::user()->id)
+        ->where('categorys','=',1)->first();
 
 //    dd(Auth::user());
+        Session::flash('level','Easy');
 
       if (is_null($myscore)) {
-          return redirect(url('/'));
+          Session::flash('failed', 'Play level easy first to access Scoreboards.');
+          return redirect()->back();
       } else {
+
+
           return view('scoreboard')->with('easy',$easy)->with('medium',$medium)->with('hard',$hard)
               ->with('id',Auth::user()->id)->with('myscore',$myscore);
       }
@@ -47,10 +52,22 @@ class LeaderboardController extends Controller
         $medium = DB::select(DB::raw("CALL score_read_medium()"));
         $hard = DB::select(DB::raw("CALL score_read_hard()"));
 
-        $myscore = DB::table('score')->where('idUser','=',Auth::user()->id)->first();
 
 
-        return view('scoreboardmedium')->with('easy',$easy)->with('medium',$medium)->with('hard',$hard)->with('id',Auth::user()->id)->with('myscore',$myscore);
+
+        $myscore = DB::table('score')->where('idUser','=',Auth::user()->id)
+            ->where('categorys','=',2)->first();
+
+        Session::flash('level','Medium');
+
+        if (is_null($myscore)) {
+            Session::flash('failed', 'Play level medium first to access Level Medium Scoreboards.');
+
+            return redirect()->back();
+        } else {
+            return view('scoreboardmedium')->with('easy',$easy)->with('medium',$medium)->with('hard',$hard)
+                ->with('id',Auth::user()->id)->with('myscore',$myscore);
+        }
     }
 
     public function topListHard(){
@@ -65,9 +82,23 @@ class LeaderboardController extends Controller
         $medium = DB::select(DB::raw("CALL score_read_medium()"));
         $hard = DB::select(DB::raw("CALL score_read_hard()"));
 
-        $myscore = DB::table('score')->where('idUser','=',Auth::user()->id)->first();
 
-        return view('scoreboardhard')->with('easy',$easy)->with('medium',$medium)->with('hard',$hard)->with('id',Auth::user()->id)->with('myscore',$myscore);
+
+        $myscore = DB::table('score')->where('idUser','=',Auth::user()->id)
+            ->where('categorys','=',3)->first();
+
+        Session::flash('level','Hard');
+//    dd(Auth::user());
+
+        if (is_null($myscore)) {
+
+            Session::flash('failed', 'Play level hard first to access Level Hard Scoreboards.');
+
+            return redirect()->back();
+        } else {
+            return view('scoreboardhard')->with('easy',$easy)->with('medium',$medium)->with('hard',$hard)
+                ->with('id',Auth::user()->id)->with('myscore',$myscore);
+        }
     }
 
 

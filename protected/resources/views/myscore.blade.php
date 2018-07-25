@@ -1,6 +1,17 @@
 <div class="jumbotron" style="margin-top: 10%; color: black; padding: 5%;">
+    @if(Session::get('failed') != null)
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('failed') }}
+        </div>
+    @endif
+
     <h6 class="lead">Your Profile So Far..</h6>
     <hr class="my-4">
+
+    <h6 class="lead">
+        Your Score Level - {{ Session::get('level') }}
+    </h6>
+
 
     <div class="col-lg-8 offset-lg-2">
         <table class="table">
