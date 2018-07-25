@@ -37,8 +37,9 @@
 <body>
 
     <div class="text-center mb-4">
-        <img class="mb-4" src="{{ URL::asset('img/logo.png') }}" alt="" width="70%" height="70%">
-        
+        <a href="{{ url('/') }}">
+            <img class="mb-4" src="{{ URL::asset('img/logo.png') }}" alt="" width="70%" height="70%">
+        </a>
         <div class="container">
             <div class="row text-center">
                 <div class="col">
