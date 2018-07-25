@@ -93,14 +93,16 @@
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122658895-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122881138-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-122658895-1');
+    gtag('config', 'UA-122881138-1');
 </script>
+
+
 </body>
 </html>
 
