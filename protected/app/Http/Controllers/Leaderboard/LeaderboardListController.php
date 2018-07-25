@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Leaderboards;
+namespace App\Http\Controllers\Leaderboard;
 
 /**
  * @author Faisal Rizky <isalriz9@gmail.com>
@@ -15,7 +15,7 @@ use App\Http\Controllers\Controller,
 class LeaderboardListController extends Controller
 {
   public $id;
-  public $username;
+  public $idUser;
   public $totalMoves;
   public $totalMatch;
   public $totalTimes;
@@ -35,7 +35,7 @@ class LeaderboardListController extends Controller
            ->first();
              if($item){
                  $this->id           	      = $item->id;
-                 $this->username           	= $item->username;
+                 $this->idUser           	  = $item->idUser;
                  $this->totalMoves     	    = $item->totalmoves;
                  $this->totalMatch    	    = $item->totalmatch;
                  $this->totalTimes     	    = $item->totaltimes;
@@ -58,4 +58,4 @@ class LeaderboardListController extends Controller
 
 
 
-}
+
