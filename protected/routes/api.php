@@ -25,6 +25,9 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 //});
 
 Route::post("generate/surah/names", 'MainAPIController@generateSurahNames');
+Route::post("generate/surah/juz", 'MainAPIController@generateJuz');
 Route::post("generate/surah/numberayah", 'MainAPIController@generateNumberAyah');
+Route::post("generate/updatequestion", 'MainAPIController@generateUpdateQuestion');
 Route::post("generate/question/one", 'MainAPIController@generateOneQuestion');
 
+Route::get("question-answers/get/{id}", 'MainAPIController@getQuestionAnswersByIdQuestion');

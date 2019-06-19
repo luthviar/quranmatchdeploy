@@ -139,6 +139,23 @@ class MainAPIController extends Controller
         dd($id_question. ' '. $no_surat. ' '.$ayat_surat);
     }
 
+    public function generateUpdateQuestion() {
+        $questions = DB::table('questions')->get();
+        $correct_answer = '';
+        for ($i=1;$i<=count($questions);$i++) {
+            $correct_answer = DB::table('correct_answers')
+                            ->where('id_question',$i)
+                            ->first();
+            DB::table('questions')
+                ->where('id', $i)
+                ->update([
+                    'id_quran' => $correct_answer->id_quran,
+                    'id_surah_name' => $correct_answer->id_surah_name
+                ]);
+        }
+        dd($correct_answer);
+    }
+
     public function generateNumberAyah()
     {
         $numberAyah = 0;
@@ -153,5 +170,54 @@ class MainAPIController extends Controller
                 ]);
         }
         dd($numberAyah);
+    }
+
+    public function generateJuz()
+    {
+        $juz = 0;
+//        $client2 = new Client();
+//        $responsed2 = $client2->get('http://api.alquran.cloud/v1/surah/67');
+//        $numberAyah = json_decode($responsed2->getBody()->getContents())->data->ayahs[0]->juz;
+//        dd($numberAyah);
+        for ($i = 105; $i<=114;$i++) {
+            $client2 = new Client();
+            $responsed2 = $client2->get('http://api.alquran.cloud/v1/surah/'.$i);
+            $juz = json_decode($responsed2->getBody()->getContents())->data->ayahs[0]->juz;
+            DB::table('surah_names')
+                ->where('id', $i)
+                ->update([
+                    'juz' => $juz
+                ]);
+        }
+        dd($juz);
+    }
+
+
+    public function getQuestionAnswersByIdQuestion($id) {
+        $the_question = DB::table('questions')
+                            ->where('id',$id)
+                            ->first();
+        $the_answer_options = DB::table('answer_options')
+                            ->where('id_question',$the_question->id)
+                            ->inRandomOrder()
+                            ->get();
+        $the_quran = DB::table('qurans')
+                            ->where('id',$the_question->id_quran)
+                            ->first();
+        $the_surah = DB::table('surah_names')
+                            ->where('id',$the_question->id_surah_name)
+                            ->first();
+
+        $data = array(
+            'the_question' => $the_question,
+            'the_answer_options' => $the_answer_options,
+            'the_quran' => $the_quran,
+            'the_surah' => $the_surah
+        );
+
+        return response()->json([
+            'status' => 200,
+            'data' => $data
+        ], 200);
     }
 }
