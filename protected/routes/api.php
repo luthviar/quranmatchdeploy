@@ -32,3 +32,4 @@ Route::post("generate/question/one", 'MainAPIController@generateOneQuestion');
 
 Route::get("question-answers/get/{id}", 'MainAPIController@getQuestionAnswersByIdQuestion');
 Route::get("question-answers/juz/get/{juz}/{num_questions}", 'MainAPIController@getQuestionAnswersByJuz');
+Route::get("question-answers/juz/get/v2/{num_questions}/{juz}", 'MainAPIController@getQuestionAnswersByJuzV2');

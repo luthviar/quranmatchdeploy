@@ -258,4 +258,51 @@ class MainAPIController extends Controller
             'data' => $questionsAnswers
         ], 200);
     }
+
+    public function getQuestionAnswersByJuzV2($num_questions, $juz) {
+//        dd('num_questions: '.$num_questions.' juz: '.$juz);
+        $the_surah = DB::table('surah_names')
+            ->where('juz',$juz)
+            ->inRandomOrder()
+            ->first();
+
+
+        $questionsAnswers = [];
+//        $questionsAnswers['the_surah'] = [];
+//        array_push($questionsAnswers['the_surah'], $the_surah);
+
+//        $questionsAnswers['questions'] = [];
+        $current_id_questions = [];
+        $current_id_questions[0] = 0;
+        for ($idx1 = 0,$number_count = 1;$idx1 < $num_questions; $idx1++,$number_count++) {
+            $the_question = DB::table('questions')
+                ->where('id_surah_name',$the_surah->id)
+                ->whereNotIn('id',[$current_id_questions[$idx1]])
+                ->first();
+            array_push($current_id_questions, $the_question->id);
+            $the_correct_answer = DB::table('correct_answers')
+                                    ->where('id_question', $the_question->id)
+                                    ->first();
+            $the_answer_options = DB::table('answer_options')
+                ->select('answer_option_content')
+                ->where('id_question',$the_question->id)
+                ->where('is_correct', 0)
+                ->inRandomOrder()
+                ->get()->pluck('answer_option_content');
+            array_push(
+                $questionsAnswers, [
+                    "category" => "Juz ".$juz,
+                    "type" => "multiple",
+                    "difficulty" => "easy",
+                    "question" => $the_question->question_content,
+                    "correct_answer" => $the_correct_answer->correct_answer_content,
+                    "incorrect_answers" => $the_answer_options,
+            ]);
+        }
+
+        return response()->json([
+            'response_code' => 0,
+            'results' => $questionsAnswers
+        ], 200);
+    }
 }
