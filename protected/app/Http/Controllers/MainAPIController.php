@@ -220,4 +220,42 @@ class MainAPIController extends Controller
             'data' => $data
         ], 200);
     }
+
+    public function getQuestionAnswersByJuz($juz, $num_questions) {
+        $the_surah = DB::table('surah_names')
+            ->where('juz',$juz)
+            ->inRandomOrder()
+            ->first();
+
+
+        $questionsAnswers = [];
+        $questionsAnswers['the_surah'] = [];
+        array_push($questionsAnswers['the_surah'], $the_surah);
+
+        $questionsAnswers['questions'] = [];
+        $current_id_questions = [];
+        $current_id_questions[0] = 0;
+        for ($idx1 = 0,$number_count = 1;$idx1 < $num_questions; $idx1++,$number_count++) {
+            $the_question = DB::table('questions')
+                ->where('id_surah_name',$the_surah->id)
+                ->whereNotIn('id',[$current_id_questions[$idx1]])
+                ->first();
+            array_push($current_id_questions, $the_question->id);
+            $the_answer_options = DB::table('answer_options')
+                ->where('id_question',$the_question->id)
+                ->inRandomOrder()
+                ->get();
+            array_push(
+                $questionsAnswers['questions'], [
+                    'number' => $number_count,
+                    'the_question' => $the_question,
+                    'the_answer_options' => $the_answer_options
+            ]);
+        }
+
+        return response()->json([
+            'status' => 200,
+            'data' => $questionsAnswers
+        ], 200);
+    }
 }
