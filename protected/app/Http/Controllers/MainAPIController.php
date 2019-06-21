@@ -303,25 +303,27 @@ class MainAPIController extends Controller
 
     public function getQuestionAnswersBySurah($num_questions, $surah) {
         $questionsAnswers = [];
-        $current_id_questions = [];
-        $current_id_questions[0] = 0;
+
+        $the_surah = DB::table('surah_names')
+            ->where('id',$surah)
+            ->inRandomOrder()
+            ->first();
+        $questionsRandomGenerate = DB::table('questions')
+                                ->where('id_surah_name', $surah)
+                                ->inRandomOrder()
+                                ->limit($num_questions)
+                                ->get();
 
         for ($idx1 = 0,$number_count = 1;$idx1 < $num_questions; $idx1++,$number_count++) {
-            $the_surah = DB::table('surah_names')
-                ->where('id',$surah)
-                ->first();
-            $the_question = DB::table('questions')
-                ->where('id_surah_name',$the_surah->id)
-                ->whereNotIn('id',[$current_id_questions[$idx1]])
-                ->where('question_content','<>','...')
-                ->first();
-            array_push($current_id_questions, $the_question->id);
+
+            $the_question = $questionsRandomGenerate;
+
             $the_correct_answer = DB::table('correct_answers')
-                ->where('id_question', $the_question->id)
+                ->where('id_question', $the_question->get($idx1)->id)
                 ->first();
             $the_answer_options = DB::table('answer_options')
                 ->select('answer_option_content')
-                ->where('id_question',$the_question->id)
+                ->where('id_question',$the_question->get($idx1)->id)
                 ->where('is_correct', 0)
                 ->inRandomOrder()
                 ->get()->pluck('answer_option_content');
@@ -330,7 +332,7 @@ class MainAPIController extends Controller
                 "category" => "Surah ".$surah." - ".$the_surah->surah_name,
                 "type" => "multiple",
                 "difficulty" => "easy",
-                "question" => $the_question->question_content,
+                "question" => $the_question->get($idx1)->question_content,
                 "correct_answer" => $the_correct_answer->correct_answer_content,
                 "incorrect_answers" => $the_answer_options,
             ]);
