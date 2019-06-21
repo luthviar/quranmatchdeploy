@@ -310,14 +310,18 @@ class MainAPIController extends Controller
             ->first();
         $questionsRandomGenerate = DB::table('questions')
                                 ->where('id_surah_name', $surah)
+                                ->where('question_content','<>','...')
                                 ->inRandomOrder()
                                 ->limit($num_questions)
                                 ->get();
+        if(count($questionsRandomGenerate) < $num_questions) {
+            $num_questions = count($questionsRandomGenerate);
+        }
 
-        for ($idx1 = 0,$number_count = 1;$idx1 < $num_questions; $idx1++,$number_count++) {
+        for ($idx1 = 0;$idx1 < $num_questions; $idx1++) {
 
             $the_question = $questionsRandomGenerate;
-
+//            dd($the_question);
             $the_correct_answer = DB::table('correct_answers')
                 ->where('id_question', $the_question->get($idx1)->id)
                 ->first();
@@ -326,7 +330,11 @@ class MainAPIController extends Controller
                 ->where('id_question',$the_question->get($idx1)->id)
                 ->where('is_correct', 0)
                 ->inRandomOrder()
+                ->limit(3)
                 ->get()->pluck('answer_option_content');
+//            if($idx1 == 6) {
+//                dd($the_answer_options);
+//            }
             array_push(
                 $questionsAnswers, [
                 "category" => "Surah ".$surah." - ".$the_surah->surah_name,
