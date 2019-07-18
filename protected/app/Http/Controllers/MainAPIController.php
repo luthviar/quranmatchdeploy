@@ -311,14 +311,14 @@ class MainAPIController extends Controller
         $question_test = DB::table('questions')
                             ->where('id',1)
                             ->first();
-        dd($question_test);
+//        dd($question_test);
         $questionsRandomGenerate = DB::table('questions')
                                 ->where('id_surah_name', $surah)
                                 ->where('question_content','<>','...')
                                 ->inRandomOrder()
                                 ->limit($num_questions)
                                 ->get();
-        dd($questionsRandomGenerate);
+//        dd($questionsRandomGenerate);
         if(count($questionsRandomGenerate) < $num_questions) {
             $num_questions = count($questionsRandomGenerate);
         }
