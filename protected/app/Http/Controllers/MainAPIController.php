@@ -308,12 +308,17 @@ class MainAPIController extends Controller
             ->where('id',$surah)
             ->inRandomOrder()
             ->first();
+        $question_test = DB::table('questions')
+                            ->where('id',1)
+                            ->first();
+        dd($question_test);
         $questionsRandomGenerate = DB::table('questions')
                                 ->where('id_surah_name', $surah)
                                 ->where('question_content','<>','...')
                                 ->inRandomOrder()
                                 ->limit($num_questions)
                                 ->get();
+        dd($questionsRandomGenerate);
         if(count($questionsRandomGenerate) < $num_questions) {
             $num_questions = count($questionsRandomGenerate);
         }
@@ -350,5 +355,29 @@ class MainAPIController extends Controller
             'response_code' => 0,
             'results' => $questionsAnswers
         ], 200);
+    }
+
+    public function updateDot() {
+        //٠
+
+        $questions = DB::table('questions')->get();
+        $new_question = '';
+
+        for ($i = 4484; $i<=count($questions);$i++) {
+
+            $the_data = DB::table('questions')
+                ->where('id', $i)
+                ->get()
+                ->map(function ($data) {
+                    $data->question_content = str_replace('...', '', $data->question_content);
+                    return $data;
+                });
+            $new_question = '٠٠٠'.$the_data->get(0)->question_content;
+            DB::table('questions')
+                ->where('id', $i)
+                ->update(['question_content' => $new_question]);
+        }
+
+        dd($new_question);
     }
 }
